@@ -1,0 +1,15 @@
+/*.json
+/static/
+*.sqlite3
+venv/
+.venv/
+**/migrations/*
+!**/migrations/__init__.py
+/media/*
+!media/default
+!media/icons
+!media/.gitkeep
+locate/
+.env
+.idea
+**/__pycache__/
