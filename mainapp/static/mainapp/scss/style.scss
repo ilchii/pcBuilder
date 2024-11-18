@@ -1,0 +1,40 @@
+html {
+  background-color: #fdfff7;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1140px;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  @media (min-width: 1600px) {
+    max-width: 1320px;
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+}

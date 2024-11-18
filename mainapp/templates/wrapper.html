@@ -1,0 +1,56 @@
+{% load static %}
+{% load compress %}
+{% spaceless %}
+    <!DOCTYPE html>
+    <html lang="uk">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% spaceless %}{% block title %}{% endblock %}{% endspaceless %}</title>
+        <meta name="description" content="{% spaceless %}{% block description %}{% endblock %}{% endspaceless %}">
+
+        {% compress css %}
+            <link rel="stylesheet" href="{% static 'mainapp/scss/style.scss' %}" type="text/x-scss">
+            {# Блок призначений для внутрішніх scss стилів, які потрібно вставити в head #}
+            {% block head_custom_styles %}
+
+            {% endblock %}
+        {% endcompress %}
+
+        {# Блок призначений для зовнішніх (cdn) css стилів, які потрібно вставити в head #}
+        {% block head_external_styles %}
+        {% endblock %}
+
+        {% compress js %}
+            {# Блок призначений для внутрішніх js скриптів, які потрібно вставити в head #}
+            {% block head_custom_scripts %}
+            {% endblock %}
+        {% endcompress %}
+        {# Блок призначений для зовнішніх (cdn) js скриптів, які потрібно вставити в head #}
+        {% block head_external_scripts %}
+        {% endblock %}
+    </head>
+    <body>
+    <header class="header">
+        {% include 'mainapp/header.html' %}
+    </header>
+    <main>
+        {% block body %}
+        {% endblock %}
+    </main>
+    <footer>
+        {% include 'mainapp/footer.html' %}
+    </footer>
+    {% compress js %}
+        <script src="{% static 'mainapp/js/script.js' %}"></script>
+        {# Блок призначений для внутрішніх js скриптів, які потрібно вставити в body #}
+        {% block extra_js %}
+        {% endblock %}
+    {% endcompress %}
+    {# Блок призначений для зовнішніх (cdn) js скриптів, які потрібно вставити в body #}
+    {% block external_extra_js %}
+    {% endblock %}
+
+    </body>
+    </html>
+{% endspaceless %}
