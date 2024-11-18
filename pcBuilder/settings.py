@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp',
-    'apps.user.apps.UserConfig',
-    'apps.recipe.apps.RecipeConfig',
+    # 'apps.user.apps.UserConfig',
+    # 'apps.recipe.apps.RecipeConfig',
     'mptt',
     'filebrowser',
     'compressor',
@@ -197,7 +197,7 @@ FILEBROWSER_EXTENSIONS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'user.Profile'
+# AUTH_USER_MODEL = 'user.Profile'
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
