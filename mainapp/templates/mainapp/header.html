@@ -11,6 +11,10 @@
     <a href="#"><i class="fas fa-desktop"></i> Completed Builds</a>
 </nav>
 <div class="auth-buttons">
-    <button>Log In</button>
-    <button>Sign Up</button>
+    {% if user.is_authenticated %}
+    <a href="#">{{ user.username }}</a>
+    {% else %}
+    <a href="{% url 'login' %}"><button>Log In</button></a>
+    <a href="{% url 'signup' %}"><button>Sign Up</button></a>
+    {% endif %}
 </div>
