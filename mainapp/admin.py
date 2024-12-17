@@ -1,5 +1,5 @@
 from django.contrib import admin
-from mainapp.models import Processor, Motherboard, Memory, Storage, VideoCard, Case, PowerSupply
+from mainapp.models import Processor, Motherboard, Memory, Storage, VideoCard, Case, PowerSupply, Build
 
 # Register your models here.
 
@@ -11,3 +11,4 @@ admin.site.register(Storage)
 admin.site.register(VideoCard)
 admin.site.register(Case)
 admin.site.register(PowerSupply)
+admin.site.register(Build)

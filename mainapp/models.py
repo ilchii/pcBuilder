@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from django.contrib.auth.models import User  # Import the User model
 
 SOCKET_TYPE_CHOICES = [
     ("AM4", "AM4"),
@@ -8,6 +7,8 @@ SOCKET_TYPE_CHOICES = [
     ("LGA1200", "LGA1200"),
     ("LGA1700", "LGA1700"),
 ]
+
+# Create your models here.
 
 # Processor model
 class Processor(models.Model):
@@ -21,6 +22,7 @@ class Processor(models.Model):
     def __str__(self):
         return self.name
 
+
 # Motherboard model
 class Motherboard(models.Model):
     name = models.CharField(max_length=100)
@@ -32,6 +34,7 @@ class Motherboard(models.Model):
     def __str__(self):
         return self.name
 
+
 # Memory model
 class Memory(models.Model):
     name = models.CharField(max_length=100)
@@ -42,6 +45,7 @@ class Memory(models.Model):
 
     def __str__(self):
         return self.name
+
 
 # Storage model
 class Storage(models.Model):
@@ -55,6 +59,7 @@ class Storage(models.Model):
     def __str__(self):
         return self.name
 
+
 # VideoCard model
 class VideoCard(models.Model):
     name = models.CharField(max_length=100)
@@ -66,6 +71,7 @@ class VideoCard(models.Model):
     def __str__(self):
         return self.name
 
+
 # Case model
 class Case(models.Model):
     name = models.CharField(max_length=100)
@@ -75,6 +81,7 @@ class Case(models.Model):
 
     def __str__(self):
         return self.name
+
 
 # PowerSupply model
 class PowerSupply(models.Model):
@@ -86,3 +93,19 @@ class PowerSupply(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Build(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Link to the User who created the build
+    name = models.CharField(max_length=100)  # Name of the build
+    processor = models.ForeignKey(Processor, on_delete=models.CASCADE, null=True, blank=True)
+    motherboard = models.ForeignKey(Motherboard, on_delete=models.CASCADE, null=True, blank=True)
+    memory = models.ForeignKey(Memory, on_delete=models.CASCADE, null=True, blank=True)
+    storage = models.ForeignKey(Storage, on_delete=models.CASCADE, null=True, blank=True)
+    video_card = models.ForeignKey(VideoCard, on_delete=models.CASCADE, null=True, blank=True)
+    case = models.ForeignKey(Case, on_delete=models.CASCADE, null=True, blank=True)
+    power_supply = models.ForeignKey(PowerSupply, on_delete=models.CASCADE, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)  # Timestamp for when the build was created
+
+    def __str__(self):
+        return f"{self.name} by {self.user.username}"
