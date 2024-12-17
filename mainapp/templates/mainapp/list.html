@@ -2,8 +2,13 @@
 {% load static %}
 {% block body %}
 
+<h1 style="text-align: center; padding: 40px; background-color: black; color: white;">Add Components</h1>
 
-    <h1 style="text-align: center; padding: 40px; background-color: black; color: white;">Add Components</h1>
+<form method="POST" enctype="multipart/form-data" action="{% url 'create_build' %}">
+    {% csrf_token %}
+    <label for="build_name">Build Name:</label>
+    <input type="text" id="build_name" name="build_name" placeholder="Enter build name" required>
+
     <table>
         <tr>
             <th>Component</th>
@@ -117,26 +122,29 @@
         </tr>
     </table>
 
-    <script>
-        function updateSelection(component, selectElement) {
-            const selectedValue = selectElement.options[selectElement.selectedIndex].text;
-            const displayDiv = document.getElementById(`${component}-selected`);
-            const selectElementDiv = document.getElementById(`${component}-select`);
+    <button type="submit">Save Build</button>
+</form>
 
-            // Hide select and show selected item
-            selectElementDiv.style.display = 'none';
-            displayDiv.classList.remove('hidden');
-            displayDiv.querySelector('span').textContent = `Selected: ${selectedValue}`;
-        }
+<script>
+    function updateSelection(component, selectElement) {
+        const selectedValue = selectElement.options[selectElement.selectedIndex].text;
+        const displayDiv = document.getElementById(`${component}-selected`);
+        const selectElementDiv = document.getElementById(`${component}-select`);
 
-        function removeSelection(component) {
-            const selectElementDiv = document.getElementById(`${component}-select`);
-            const displayDiv = document.getElementById(`${component}-selected`);
+        // Hide select and show selected item
+        selectElementDiv.style.display = 'none';
+        displayDiv.classList.remove('hidden');
+        displayDiv.querySelector('span').textContent = `Selected: ${selectedValue}`;
+    }
 
-            // Show select again and hide the selected item
-            selectElementDiv.style.display = 'inline-block';
-            displayDiv.classList.add('hidden');
-        }
-    </script>
+    function removeSelection(component) {
+        const selectElementDiv = document.getElementById(`${component}-select`);
+        const displayDiv = document.getElementById(`${component}-selected`);
+
+        // Show select again and hide the selected item
+        selectElementDiv.style.display = 'inline-block';
+        displayDiv.classList.add('hidden');
+    }
+</script>
 
 {% endblock %}
