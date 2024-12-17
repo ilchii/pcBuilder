@@ -2,8 +2,8 @@
 {% load static %}
 {% block body %}
 
-<h1 style="text-align: center; padding: 40px; background-color: black; color: white;">Add Components</h1>
-
+<h1 class="builder">Add Components</h1>
+<!--style="text-align: center; padding: 40px; background-color: black; color: white;"-->
 <form method="POST" enctype="multipart/form-data" action="{% url 'create_build' %}">
     {% csrf_token %}
     <label for="build_name">Build Name:</label>

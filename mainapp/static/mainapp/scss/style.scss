@@ -202,3 +202,122 @@ button {
 .cross-btn:hover {
     color: darkred;
 }
+
+
+///////////////////////
+
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.builder {
+    text-align: center;
+    padding: 40px;
+    background-color: black;
+    color: white;
+    font-size: 2.5em;
+    border-bottom: 2px solid #4b0082;
+}
+
+form {
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2b0a3d;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+label {
+    display: block;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #4b0082;
+    border-radius: 5px;
+    background-color: #3e104b;
+    color: white;
+    font-size: 1em;
+}
+
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    font-size: 1em;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: left;
+}
+
+table th {
+    background-color: #4b0082;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+table tr:nth-child(odd) {
+    background-color: #3e104b;
+}
+
+table tr:nth-child(even) {
+    background-color: #2b0a3d;
+}
+
+select {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #4b0082;
+    border-radius: 5px;
+    background-color: #3e104b;
+    color: white;
+    font-size: 1em;
+}
+
+button.cross-btn {
+    padding: 5px 10px;
+    background-color: #4b0082;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.cross-btn:hover {
+    background-color: #6a0dad;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    background-color: #4b0082;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover {
+    background-color: #6a0dad;
+}
+
+.hidden {
+    display: none;
+}
