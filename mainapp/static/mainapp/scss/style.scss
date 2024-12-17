@@ -168,3 +168,37 @@ html {
 .nav-buttons a i {
     font-size: 30px;
 }
+
+////////////////////
+//list
+
+table {
+    width: 50%;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #f4f4f4;
+}
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.hidden {
+    display: none;
+}
+.cross-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: red;
+    cursor: pointer;
+}
+.cross-btn:hover {
+    color: darkred;
+}

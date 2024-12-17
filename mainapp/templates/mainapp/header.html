@@ -2,7 +2,7 @@
 
 <div class="logo">
     <a href="{% url 'index' %}">
-        <img src="static/mainapp/media/logo.png" alt="Site Logo">
+        <img src="../static/mainapp/media/logo.png" alt="Site Logo">
     </a>
 </div>
 <nav class="nav-buttons">
@@ -12,7 +12,10 @@
 </nav>
 <div class="auth-buttons">
     {% if user.is_authenticated %}
-    <a href="#">{{ user.username }}</a>
+    <a
+        style="font-size: 20px; color: black; margin-right: 20px; margin-left: 50px; text-decoration: none;"
+        href="#">{{ user.username }}
+    </a>
     {% else %}
     <a href="{% url 'login' %}"><button>Log In</button></a>
     <a href="{% url 'signup' %}"><button>Sign Up</button></a>

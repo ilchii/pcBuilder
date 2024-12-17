@@ -1,0 +1,142 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block body %}
+
+
+    <h1 style="text-align: center; padding: 40px; background-color: black; color: white;">Add Components</h1>
+    <table>
+        <tr>
+            <th>Component</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>CPU</td>
+            <td>
+                <select id="CPU-select" onchange="updateSelection('CPU', this)">
+                    <option value="">Select a CPU</option>
+                    {% for processor in processors %}
+                    <option value="{{ processor.id }}">{{ processor.name }}</option>
+                    {% endfor %}
+                </select>
+                <div id="CPU-selected" class="hidden">
+                    <span>Selected: None</span>
+                    <button class="cross-btn" onclick="removeSelection('CPU')">×</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Motherboard</td>
+            <td>
+                <select id="Motherboard-select" onchange="updateSelection('Motherboard', this)">
+                    <option value="">Select a Motherboard</option>
+                    {% for motherboard in motherboards %}
+                    <option value="{{ motherboard.id }}">{{ motherboard.name }}</option>
+                    {% endfor %}
+                </select>
+                <div id="Motherboard-selected" class="hidden">
+                    <span>Selected: None</span>
+                    <button class="cross-btn" onclick="removeSelection('Motherboard')">×</button>
+                </div>
+            </td>
+        </tr>
+        <!-- Repeat for other components -->
+                <tr>
+            <td>Memory</td>
+            <td>
+                <select id="Memory-select" onchange="updateSelection('Memory', this)">
+                    <option value="">Select a Memory</option>
+                    {% for memory in memories %}
+                    <option value="{{ memory.id }}">{{ memory.name }}</option>
+                    {% endfor %}
+                </select>
+                <div id="Memory-selected" class="hidden">
+                    <span>Selected: None</span>
+                    <button class="cross-btn" onclick="removeSelection('Memory')">×</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Storage</td>
+            <td>
+                <select id="Storage-select" onchange="updateSelection('Storage', this)">
+                    <option value="">Select a Storage</option>
+                    {% for storage in storages %}
+                    <option value="{{ storage.id }}">{{ storage.name }}</option>
+                    {% endfor %}
+                </select>
+                <div id="Storage-selected" class="hidden">
+                    <span>Selected: None</span>
+                    <button class="cross-btn" onclick="removeSelection('Storage')">×</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Video Card</td>
+            <td>
+                <select id="VideoCard-select" onchange="updateSelection('VideoCard', this)">
+                    <option value="">Select a Video Card</option>
+                    {% for videocard in videocards %}
+                    <option value="{{ videocard.id }}">{{ videocard.name }}</option>
+                    {% endfor %}
+                </select>
+                <div id="VideoCard-selected" class="hidden">
+                    <span>Selected: None</span>
+                    <button class="cross-btn" onclick="removeSelection('VideoCard')">×</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Case</td>
+            <td>
+                <select id="Case-select" onchange="updateSelection('Case', this)">
+                    <option value="">Select a Case</option>
+                    {% for case in cases %}
+                    <option value="{{ case.id }}">{{ case.name }}</option>
+                    {% endfor %}
+                </select>
+                <div id="Case-selected" class="hidden">
+                    <span>Selected: None</span>
+                    <button class="cross-btn" onclick="removeSelection('Case')">×</button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Power Supply</td>
+            <td>
+                <select id="PowerSupply-select" onchange="updateSelection('PowerSupply', this)">
+                    <option value="">Select a Power Supply</option>
+                    {% for powersupply in powersupplies %}
+                    <option value="{{ powersupply.id }}">{{ powersupply.name }}</option>
+                    {% endfor %}
+                </select>
+                <div id="PowerSupply-selected" class="hidden">
+                    <span>Selected: None</span>
+                    <button class="cross-btn" onclick="removeSelection('PowerSupply')">×</button>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function updateSelection(component, selectElement) {
+            const selectedValue = selectElement.options[selectElement.selectedIndex].text;
+            const displayDiv = document.getElementById(`${component}-selected`);
+            const selectElementDiv = document.getElementById(`${component}-select`);
+
+            // Hide select and show selected item
+            selectElementDiv.style.display = 'none';
+            displayDiv.classList.remove('hidden');
+            displayDiv.querySelector('span').textContent = `Selected: ${selectedValue}`;
+        }
+
+        function removeSelection(component) {
+            const selectElementDiv = document.getElementById(`${component}-select`);
+            const displayDiv = document.getElementById(`${component}-selected`);
+
+            // Show select again and hide the selected item
+            selectElementDiv.style.display = 'inline-block';
+            displayDiv.classList.add('hidden');
+        }
+    </script>
+
+{% endblock %}
