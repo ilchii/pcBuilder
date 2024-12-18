@@ -275,25 +275,27 @@ form {
     width: 90%;
     margin: 20px auto;
     padding: 20px;
-    background-color: #2b0a3d;
+    background-color: #ffffff; /* White background */
     border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Softer shadow */
+    color: #333; /* Text color for better readability */
 }
 
 label {
     display: block;
     font-size: 1.2em;
     margin: 10px 0;
+    color: #333; /* Darker label color */
 }
 
 input[type="text"] {
-    width: 100%;
+    width: 98.7%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #4b0082;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #3e104b;
-    color: white;
+    background-color: #f9f9f9;
+    color: #333;
     font-size: 1em;
 }
 
@@ -307,44 +309,45 @@ table {
 table th, table td {
     padding: 15px;
     text-align: left;
+    border: 1px solid #ddd; /* Light borders */
 }
 
 table th {
-    background-color: #4b0082;
-    color: white;
+    background-color: #f1f1f1; /* Light gray for table headers */
+    color: #333;
     text-transform: uppercase;
     font-weight: bold;
 }
 
 table tr:nth-child(odd) {
-    background-color: #3e104b;
+    background-color: #f9f9f9; /* Alternate light rows */
 }
 
 table tr:nth-child(even) {
-    background-color: #2b0a3d;
+    background-color: #ffffff;
 }
 
 select {
     width: 90%;
     padding: 10px;
-    border: 1px solid #4b0082;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #3e104b;
-    color: white;
+    background-color: #f9f9f9;
+    color: #333;
     font-size: 1em;
 }
 
 button.cross-btn {
     padding: 5px 10px;
-    background-color: #4b0082;
-    color: white;
-    border: none;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button.cross-btn:hover {
-    background-color: #6a0dad;
+    background-color: #ddd;
 }
 
 button[type="submit"] {
@@ -352,22 +355,19 @@ button[type="submit"] {
     width: 100%;
     padding: 15px;
     font-size: 1.2em;
-    background-color: #4b0082;
+    background-color: #4b0082; /* Green submit button */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
-    text-transform: uppercase;
+    transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
     background-color: #6a0dad;
 }
 
-.hidden {
-    display: none;
-}
 
 ////////////////////////////
 
