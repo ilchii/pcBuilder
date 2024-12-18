@@ -1,14 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f3f0ff; /* Light purple background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #6a0dad; /* Deep purple */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 0.2rem;
+            color: #444;
+        }
+        input {
+            margin-bottom: 1rem;
+            padding: 0.7rem;
+            border: 1px solid #d1b3ff; /* Light purple border */
+            border-radius: 5px;
+            font-size: 1rem;
+            background-color: #f9f7ff;
+            transition: border 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #8a2be2; /* Bright purple on focus */
+        }
+        button {
+            background-color: #8a2be2; /* Purple button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.8rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #6a0dad; /* Deep purple on hover */
+        }
+        p {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        a {
+            color: #8a2be2;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h2>Log In</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Log In</button>
-    </form>
+    <div class="container">
+        <h2>Log In</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="id_username">Username:</label>
+            <input type="text" id="id_username" name="username" placeholder="Your username" required>
+
+            <label for="id_password">Password:</label>
+            <input type="password" id="id_password" name="password" placeholder="Enter password" required>
+
+            <button type="submit">Log In</button>
+        </form>
+        <p>Don't have an account? <a href="{% url 'signup' %}">Sign Up</a></p>
+    </div>
 </body>
 </html>
