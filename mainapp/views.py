@@ -72,3 +72,7 @@ def create_build(request):
         "powersupplies": PowerSupply.objects.all(),
     }
     return render(request, "mainapp/list.html", context)
+
+def completed_builds(request):
+    builds = Build.objects.all()
+    return render(request, 'mainapp/completed_builds.html', {'builds': builds})

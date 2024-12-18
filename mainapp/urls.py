@@ -1,6 +1,6 @@
 from django.urls import path, include, re_path
 from django.contrib.auth import views as auth_views
-from mainapp.views import index, signup, list, create_build
+from mainapp.views import index, signup, list, create_build, completed_builds
 
 urlpatterns = [
     path('', index, name="index"),
@@ -8,5 +8,6 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('signup/', signup, name="signup"),
     path('list/', list, name="list"),
-    path("create-build/", create_build, name="create_build")
+    path("create-build/", create_build, name="create_build"),
+    path('completed-builds/', completed_builds, name='completed_builds')
 ]

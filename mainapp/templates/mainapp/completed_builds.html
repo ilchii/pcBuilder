@@ -1,0 +1,19 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block body %}
+
+    <h1>Completed Builds</h1>
+    <div class="builds-container">
+        {% for build in builds %}
+        <div class="build-card">
+            {% if build.image %}
+                <img src="{{ build.image.url }}" alt="{{ build.name }}" class="build-image">
+            {% endif %}
+            <h2>{{ build.name }}</h2>
+            <p>By: {{ build.user.username }}</p>
+            <p><strong>Total Price:</strong> ${{ build.total_price }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

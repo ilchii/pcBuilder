@@ -321,3 +321,38 @@ button[type="submit"]:hover {
 .hidden {
     display: none;
 }
+
+////////////////////////////
+
+.builds-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.build-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.build-image {
+    width: 100%;
+    height: auto;
+}
+
+.build-card h2 {
+    margin: 10px 0;
+    color: #4b0082;
+}
+
+.build-card p {
+    margin: 5px 0;
+    color: #555;
+}
