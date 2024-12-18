@@ -1,24 +1,92 @@
 {% extends 'wrapper.html' %}
 {% load static %}
+{% block head_custom_styles %}
+    <link rel="stylesheet" href="{% static 'mainapp/scss/build_details.scss' %}" type='text/x-scss'>
+{% endblock %}
 {% block body %}
 
-    <h1>{{ build.name }}</h1>
-    {% if build.image %}
-        <img src="{{ build.image.url }}" alt="{{ build.name }}" class="build-detail-image">
-    {% endif %}
-    <p><strong>Created by:</strong> {{ build.user.username }}</p>
-    <p><strong>Created at:</strong> {{ build.created_at }}</p>
-    <h3>Components:</h3>
-    <ul>
-        {% if build.processor %}<li><strong>Processor:</strong> {{ build.processor.name }} - ${{ build.processor.price_usd }}</li>{% endif %}
-        {% if build.motherboard %}<li><strong>Motherboard:</strong> {{ build.motherboard.name }} - ${{ build.motherboard.price_usd }}</li>{% endif %}
-        {% if build.memory %}<li><strong>Memory:</strong> {{ build.memory.name }} - ${{ build.memory.price_usd }}</li>{% endif %}
-        {% if build.storage %}<li><strong>Storage:</strong> {{ build.storage.name }} - ${{ build.storage.price_usd }}</li>{% endif %}
-        {% if build.video_card %}<li><strong>Video Card:</strong> {{ build.video_card.name }} - ${{ build.video_card.price_usd }}</li>{% endif %}
-        {% if build.case %}<li><strong>Case:</strong> {{ build.case.name }} - ${{ build.case.price_usd }}</li>{% endif %}
-        {% if build.power_supply %}<li><strong>Power Supply:</strong> {{ build.power_supply.name }} - ${{ build.power_supply.price_usd }}</li>{% endif %}
-    </ul>
-    <p><strong>Total Price:</strong> ${{ build.total_price }}</p>
-    <a href="{% url 'completed_builds' %}">Back to Completed Builds</a>
+    <div class="container">
+        <!-- Build Title and Creator -->
+        <h1>{{ build.name }}</h1>
+        <p class="creator">Created by: {{ build.user.username }}</p>
+
+        <!-- Layout: Image and Components Table -->
+        <div class="content">
+            <!-- Left: Image and Published Date -->
+            <div class="image-container">
+                {% if build.image %}
+                    <img src="{{ build.image.url }}" alt="{{ build.name }}">
+                {% else %}
+                    <img src="{% static 'default_build_image.png' %}" alt="Default Build Image">
+                {% endif %}
+                <p class="published-date">Published on: {{ build.created_at|date:"F j, Y" }}</p>
+            </div>
+
+            <!-- Right: Components Table -->
+            <table class="components-table">
+                <tr>
+                    <th>Component</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                {% if build.processor %}
+                <tr>
+                    <td>Processor</td>
+                    <td>{{ build.processor.name }}</td>
+                    <td>${{ build.processor.price_usd }}</td>
+                </tr>
+                {% endif %}
+                {% if build.motherboard %}
+                <tr>
+                    <td>Motherboard</td>
+                    <td>{{ build.motherboard.name }}</td>
+                    <td>${{ build.motherboard.price_usd }}</td>
+                </tr>
+                {% endif %}
+                {% if build.memory %}
+                <tr>
+                    <td>Memory</td>
+                    <td>{{ build.memory.name }}</td>
+                    <td>${{ build.memory.price_usd }}</td>
+                </tr>
+                {% endif %}
+                {% if build.storage %}
+                <tr>
+                    <td>Storage</td>
+                    <td>{{ build.storage.name }}</td>
+                    <td>${{ build.storage.price_usd }}</td>
+                </tr>
+                {% endif %}
+                {% if build.video_card %}
+                <tr>
+                    <td>Video Card</td>
+                    <td>{{ build.video_card.name }}</td>
+                    <td>${{ build.video_card.price_usd }}</td>
+                </tr>
+                {% endif %}
+                {% if build.case %}
+                <tr>
+                    <td>Case</td>
+                    <td>{{ build.case.name }}</td>
+                    <td>${{ build.case.price_usd }}</td>
+                </tr>
+                {% endif %}
+                {% if build.power_supply %}
+                <tr>
+                    <td>Power Supply</td>
+                    <td>{{ build.power_supply.name }}</td>
+                    <td>${{ build.power_supply.price_usd }}</td>
+                </tr>
+                {% endif %}
+            </table>
+        </div>
+
+        <!-- Total Price -->
+        <p class="total-price">Total Price: ${{ build.total_price }}</p>
+
+        <!-- Back Link -->
+        <a href="{% url 'completed_builds' %}" class="back-link">&larr; Back to Completed Builds</a>
+    </div>
 
 {% endblock %}
+
