@@ -2,9 +2,10 @@
 {% load static %}
 {% block body %}
 
-    <h1>Completed Builds</h1>
+    <h1 class="builder">Completed Builds</h1>
     <div class="builds-container">
         {% for build in builds %}
+        <a href="{% url 'build_detail' build.id %}" class="build-link">
         <div class="build-card">
             {% if build.image %}
                 <img src="{{ build.image.url }}" alt="{{ build.name }}" class="build-image">
@@ -13,6 +14,7 @@
             <p>By: {{ build.user.username }}</p>
             <p><strong>Total Price:</strong> ${{ build.total_price }}</p>
         </div>
+        </a>
         {% endfor %}
     </div>
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from mainapp.models import Build, Processor, Motherboard, Memory, Storage, VideoCard, Case, PowerSupply
@@ -76,3 +76,7 @@ def create_build(request):
 def completed_builds(request):
     builds = Build.objects.all()
     return render(request, 'mainapp/completed_builds.html', {'builds': builds})
+
+def build_detail(request, build_id):
+    build = get_object_or_404(Build, id=build_id)
+    return render(request, 'mainapp/build_detail.html', {'build': build})

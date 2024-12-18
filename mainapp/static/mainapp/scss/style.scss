@@ -379,19 +379,35 @@ button[type="submit"]:hover {
     padding: 20px;
 }
 
+a.build-link {
+    text-decoration: none;
+    color: inherit;
+}
+
 .build-card {
     background: white;
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     width: 300px;
+    height: 400px;
     text-align: center;
     overflow: hidden;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #CBC3E3;
+    }
+}
+
+.build-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .build-image {
     width: 100%;
-    height: auto;
+    height: 75%;
+    object-fit: cover;
 }
 
 .build-card h2 {
